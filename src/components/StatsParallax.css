@@ -93,9 +93,6 @@
   line-height: 1.5;
 }
 
-/* ============================= */
-/* ✅ FIX #2: STAGGERED HEIGHTS */
-/* ============================= */
 
 @media (min-width: 1024px) and (max-width: 2560px) {
 .stat-item:nth-child(1) {
