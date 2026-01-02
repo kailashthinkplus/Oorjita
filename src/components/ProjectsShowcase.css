@@ -1,0 +1,250 @@
+/* ============================= */
+/* SECTION */
+/* ============================= */
+.projects {
+  background: #151a0c;
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 80px 60px;
+}
+
+.projects-pill {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #c7d74a;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.projects-header h2 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.projects-viewall {
+  background: #fff;
+  color: #000;
+  padding: 10px 16px 10px 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+/* ============================= */
+/* TRACK */
+/* ============================= */
+.projects-track {
+  display: flex;
+  gap: 20px;
+  padding: 0 80px;
+  height: 420px;
+}
+
+/* ============================= */
+/* CARD BASE */
+/* ============================= */
+.project-card {
+  flex: 1;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 24px;
+  transition: flex 0.6s ease, border-radius 0.4s ease, height 0.35s ease;
+}
+
+/* ============================= */
+/* OVERLAY */
+/* ============================= */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* ============================= */
+/* TITLES */
+/* ============================= */
+.project-title {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.project-title--vertical {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  font-size: 22px;
+  font-weight: 600;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.project-title--horizontal {
+  left: 32px;
+  bottom: 96px;
+  font-size: 28px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* ============================= */
+/* DETAILS */
+/* ============================= */
+.project-details {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-location {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.project-cta {
+  background: #fff;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===================================================== */
+/* DESKTOP ONLY — HOVER INTERACTIONS (DO NOT TOUCH MOBILE) */
+/* ===================================================== */
+@media (hover: hover) and (pointer: fine) {
+
+  .project-card:hover {
+    flex: 4;
+    border-radius: 24px;
+  }
+
+  .project-card:hover .project-title--vertical {
+    opacity: 0;
+  }
+
+  .project-card:hover .project-title--horizontal {
+    opacity: 1;
+  }
+
+  .project-card:hover .project-details {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* ============================= */
+/* MOBILE / TOUCH */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* HEADER STACK */
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 24px 40px;
+    gap: 20px;
+  }
+
+  .projects-header h2 {
+    width: 100%;
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .projects-viewall {
+    order: 2;
+  }
+
+  /* TRACK → ROWS */
+  .projects-track {
+    flex-direction: column;
+    height: auto;
+    padding: 0 24px;
+    gap: 20px;
+  }
+
+  /* CARD STATES */
+  .project-card {
+    flex: none;
+    height: 96px;
+    border-radius: 28px;
+  }
+
+  .project-card.is-active {
+    height: 320px;
+    border-radius: 24px;
+  }
+
+  /* TITLES */
+  .project-title--vertical {
+    display: none;
+  }
+
+  .project-title--horizontal {
+    opacity: 1;
+    left: 24px;
+    bottom: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: none;
+  }
+
+  /* DETAILS — ONLY WHEN ACTIVE */
+  .project-details {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+
+  .project-card.is-active .project-details {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+/* ============================= */
+/* MOBILE: TITLE ABOVE LOCATION */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* Move title higher when expanded */
+  .project-card.is-active .project-title--horizontal {
+    bottom: 118px; /* above location */
+  }
+
+  /* Keep details lower */
+  .project-card.is-active .project-details {
+    bottom: 34px;
+  }
+}

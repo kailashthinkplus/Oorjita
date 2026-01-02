@@ -1,0 +1,176 @@
+/* ============================= */
+/* SECTION */
+/* ============================= */
+.leadership {
+  padding: 120px 80px;
+  text-align: center;
+  background: #fff;
+}
+
+.leadership-title {
+  font-size: 64px;
+  font-weight: 600;
+  margin-bottom: 80px;
+  line-height: 1.1;
+  color: #000;
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: end;
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+.leader-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+/* IMAGE */
+.leader-card img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+
+  /* 🔥 HOVER ANIMATION CORE */
+  transform: scale(1);
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+/* FEATURED (CENTER) */
+.leader-card.is-featured img {
+  height: 560px;
+}
+
+/* ============================= */
+/* HOVER: IMAGE CROP EXPAND */
+/* ============================= */
+.leader-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Optional: slightly soften image on hover */
+.leader-card:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  pointer-events: none;
+}
+
+/* ============================= */
+/* ACTION ICON */
+/* ============================= */
+.leader-action {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  background: #dbe86a;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  z-index: 3;
+}
+
+/* ============================= */
+/* INFO */
+/* ============================= */
+.leader-info {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 4;
+
+  backdrop-filter: blur(30px);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+
+  padding: 14px 28px;
+  min-width: 220px;
+  text-align: center;
+  color: #fff;
+}
+
+/* ROLE */
+.leader-role {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  opacity: 0.75;
+  display: block;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* NAME */
+.leader-info h3 {
+  font-size: 22px;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 700;
+  color: white;
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+@media (max-width: 768px) {
+  .leadership {
+    padding: 80px 24px;
+  }
+
+  .leadership-title {
+    font-size: 40px;
+    margin-bottom: 48px;
+  }
+
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .leader-card img,
+  .leader-card.is-featured img {
+    height: 420px;
+  }
+
+  /* Disable hover zoom on touch devices */
+  .leader-card:hover img {
+    transform: scale(1);
+  }
+
+  .leader-info {
+    bottom: 20px;
+    padding: 12px 22px;
+    min-width: unset;
+  }
+
+  .leader-info h3 {
+    font-size: 16px;
+    color: white;
+  }
+
+  .leader-role {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,264 @@
+/* ============================= */
+/* IMPACT SECTION */
+/* ============================= */
+
+.impact {
+  padding: 40px 0;
+}
+
+/* HEADER */
+.impact-header {
+  max-width: 1400px;
+  margin: 0 auto 64px;
+  padding: 0 32px;
+}
+
+.impact-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #e4ed64;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.impact-header h2 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.impact-header2 {
+    color:white;
+}
+
+.cta-impact-white {
+        color:white!important;
+}
+
+.impact-top270 {
+    top: 260px;
+}
+
+.black-line {
+background: black;}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+
+.impact-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ============================= */
+/* CARD BASE */
+/* ============================= */
+
+.impact-card {
+  position: relative;
+  padding: 40px;
+  border-radius: 32px;
+  min-height: 440px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+/* INDEX + LINE */
+.impact-index {
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.impact-card hr {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  margin-bottom: 32px;
+}
+
+/* BODY (forces text to top) */
+.impact-body {
+  flex: 1;
+}
+
+/* TEXT */
+.impact-card h3 {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.impact-card p {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 22px;
+  max-width: 90%;
+}
+
+.impact-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  width: fit-content;
+}
+
+/* ============================= */
+/* ARROW */
+/* ============================= */
+
+.impact-arrow {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 18px;
+}
+
+/* Arrow variants */
+.impact-arrow.dark {
+  background: #e4ed64;
+  color: #000;
+}
+
+.impact-arrow.highlight {
+  background: #fff;
+  color: #000;
+}
+
+.impact-arrow.image {
+  background: #e4ed64;
+  color: #000;
+}
+
+/* ============================= */
+/* CARD VARIANTS */
+/* ============================= */
+
+.impact-card.dark {
+  background: #141a0a;
+  color: #fff;
+}
+
+.impact-card.highlight {
+  background: #e4ed64;
+  color: #111;
+}
+
+.impact-card.image-bg {
+  background-image: url("/assets/oorjita/impact-img-2.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+/* ============================= */
+/* OVERLAY (CARD 3) */
+/* ============================= */
+
+.impact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+.impact-card.image-bg .impact-body,
+.impact-card.image-bg .impact-index,
+.impact-card.image-bg hr {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================= */
+/* IMAGE INSIDE CARD 2 */
+/* ============================= */
+
+.impact-image.bottom-left {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+
+  width: 220px;
+  height: 220px;
+
+  background-image: url("/assets/oorjita/impact-img-1.png");
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  .impact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .impact-header h2 {
+    font-size: 48px;
+  }
+
+  .impact-image.bottom-left {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-header h2 {
+    font-size: 40px;
+  }
+
+  .impact-card {
+    min-height: 380px;
+  }
+
+  .impact-card p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .impact {
+    padding: 80px 0;
+  }
+
+  .impact-header h2 {
+    font-size: 32px;
+  }
+
+  .impact-card {
+    padding: 32px;
+  }
+
+  .impact-arrow {
+    right: 16px;
+    bottom: 16px;
+  }
+}
