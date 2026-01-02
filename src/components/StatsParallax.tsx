@@ -33,29 +33,35 @@ export default function StatsParallax() {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
 
-          const el = entry.target as HTMLElement;
+          const el = entry.target as HTMLSpanElement;
           const end = Number(el.dataset.value);
           let current = 0;
           const step = end / 60;
 
           const interval = setInterval(() => {
             current += step;
+
             if (current >= end) {
               el.textContent = end.toString();
               clearInterval(interval);
             } else {
               el.textContent =
-                current % 1 === 0
+                end % 1 === 0
                   ? Math.floor(current).toString()
                   : current.toFixed(1);
             }
           }, 16);
+
+          observer.unobserve(el);
         });
       },
       { threshold: 0.6 }
     );
 
-    refs.current.forEach((el) => el && observer.observe(el));
+    refs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
     return () => observer.disconnect();
   }, []);
 
@@ -72,8 +78,10 @@ export default function StatsParallax() {
             <div className="stat-content">
               <h3>
                 <span
-                  ref={(el) => (refs.current[i] = el)}
                   data-value={item.value}
+                  ref={(el) => {
+                    refs.current[i] = el;
+                  }}
                 >
                   0
                 </span>
@@ -81,8 +89,8 @@ export default function StatsParallax() {
               </h3>
 
               <p>
-                {item.label.split("\n").map((t, i) => (
-                  <span key={i}>
+                {item.label.split("\n").map((t, idx) => (
+                  <span key={idx}>
                     {t}
                     <br />
                   </span>
